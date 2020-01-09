@@ -27,10 +27,23 @@ NOTE: It is recommended to set a max connection limit for the user to avoid over
 ### Running
 
 Running using an environment variable:
-
-    export DATA_SOURCE_NAME='login:password@(hostname:port)/'
-    ./mysqld_exporter <flags>
-
+```
+mysqld_exporter  \
+-collect.binlog_size \
+-collect.engine_innodb_status 
+-collect.engine_tokudb_status \
+-collect.info_schema.clientstats \
+-collect.info_schema.innodb_metrics \
+-collect.info_schema.innodb_tablespaces \
+-collect.info_schema.processlist \
+-collect.info_schema.query_response_time \
+-collect.info_schema.tablestats \
+-collect.info_schema.userstats \
+-collect.perf_schema.eventsstatements \
+-collect.perf_schema.eventswaits \
+-collect.perf_schema.file_events \
+-collect.auto_increment.columns
+```
 Running using ~/.my.cnf:
 
     ./mysqld_exporter <flags>
